@@ -1,8 +1,8 @@
 // members.js — member sign-up + per-member entry tracking.
 // Today: LocalMembers (localStorage, this device only). A free member gets FREE_LIMIT tracked entries,
-// then needs the paid plan ($2/mo). Real per-subscriber tracking/billing needs a server:
+// then needs the paid plan ($1/mo or $12/yr CAD). Real per-subscriber tracking/billing needs a server:
 // see RemoteMembers stub below and server/worker-stub.js (Cloudflare Worker + Stripe webhooks).
-const FREE_LIMIT=50;
+const FREE_LIMIT=100;
 const LocalMembers={
   _k:'clw-members',
   _db(){return JSON.parse(localStorage.getItem(this._k)||'{"current":null,"m":{}}')},

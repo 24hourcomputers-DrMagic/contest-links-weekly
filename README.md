@@ -1,4 +1,4 @@
-# Contest Links Weekly — PWA ($2/month)
+# Contest Links Weekly — PWA ($1/month)
 
 Plain HTML/JS installable PWA. No build step.
 
@@ -18,9 +18,9 @@ Install: Chrome/Edge "Install app" icon, or the Android Google Play app (Android
 - Data is in localStorage key `clw`.
 
 ## Payments: Google Play Billing only
-`billing.js` uses the Digital Goods API (`getDigitalGoodsService('https://play.google.com/billing')`) and the Payment Request API (`supportedMethods: 'https://play.google.com/billing'`, `sku: 'monthly_2cad'`).
+`billing.js` uses the Digital Goods API (`getDigitalGoodsService('https://play.google.com/billing')`) and the Payment Request API (`supportedMethods: 'https://play.google.com/billing'`, `sku: 'monthly_1cad'`).
 - **On load:** `listPurchases()` restores an existing subscription.
-- **After 50 free entries:** the lock screen leads to Plan, then "Subscribe $2/mo with Google Play".
+- **After 100 free entries:** the lock screen leads to Plan, then "Subscribe $1/mo with Google Play".
 - **Plain browsers:** show "Subscribe in the Android app".
 - **Server checks:** purchases are verified and acknowledged by `server/worker-stub.js` (`POST /play/verify`). Set `window.PLAY_VERIFY_URL` once it is deployed. Until then, the demo unlocks without server verification. Do not ship that to production.
 - **Stripe:** removed from the in-app path (Play policy). See android/BUILD.md for the Bubblewrap and Play Console setup.

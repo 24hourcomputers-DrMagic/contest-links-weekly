@@ -1,4 +1,4 @@
-# Publishing "Enter 50 Contests Free" on Google Play — plain-language guide
+# Publishing "Enter 100 Contests Free" on Google Play — plain-language guide
 *For Paul. Facts checked Nov 4, 2026 (sources at bottom). Nothing has been published or signed up for yet.*
 
 ## 0. What you already have
@@ -25,17 +25,17 @@
 On a PC (or ask me to install the tools on the box): follow `android/BUILD.md` — `npm i -g @bubblewrap/cli`, `bubblewrap init --manifest=…/manifest.webmanifest`, `bubblewrap build`. **Back up the keystore file and passwords** — losing them means you can't update the app. Then copy the SHA-256 fingerprint from Play Console → App signing into `assetlinks.json` (must be at the domain root; see BUILD.md) so the app opens without a browser bar.
 
 ## 4. Store listing — what you'll fill in
-- App name (≤30 chars): **Enter 50 Contests Free**; short description (≤80); full description (≤4000).
+- App name (≤30 chars): **Enter 100 Contests Free**; short description (≤80); full description (≤4000).
 - **App icon 512×512 PNG**, **feature graphic 1024×500**, **at least 2 phone screenshots** (I can make these).
 - **Privacy policy URL** (above), contact **email** (shown publicly; a phone/address may also be shown for paid apps — use one you're OK being public).
 - **Data safety form** (use the draft), **content rating questionnaire** (IARC; answer honestly — no gambling with real money, it links to free sweepstakes), **target audience: 18+**, ads: none, app access instructions for reviewers (e.g., "sign up with any email").
 - **Contests policy notes:** Google requires any contest *you run* to have official rules and a disclaimer that Google isn't a sponsor. You don't run contests, but the app already shows: "We list third-party contests, don't run them or guarantee prizes; Google is not a sponsor." Don't promise wins; no real-money gambling.
 
 ## 5. Getting paid inside the Android app
-- Google's rule: a subscription that unlocks app features must use **Google Play Billing** (outside the US/UK/EEA billing-choice programs; Canada isn't in them). So the Play version charges **$2.00 CAD/month through Google Play**; Stripe stays for the website only. Don't link Android users to Stripe to pay.
-- Google's cut on auto-renewing subscriptions: **15%** in Canada (US/UK/EEA now 10% + 5% billing fee). On $2 you keep about $1.70 before tax.
-- In Play Console → Monetize → Subscriptions, create product id **monthly_2cad**, $2.00 CAD, monthly auto-renew. The app has a billing stub ready; a small server must verify purchases before it's turned on.
-- The free tier is "first 50 tracked entries free, no card" — not a free *trial* — so nothing auto-converts to paid.
+- Google's rule: a subscription that unlocks app features must use **Google Play Billing** (outside the US/UK/EEA billing-choice programs; Canada isn't in them). So the Play version charges **$1.00 CAD/month through Google Play**; Stripe stays for the website only. Don't link Android users to Stripe to pay.
+- Google's cut on auto-renewing subscriptions: **15%** in Canada (US/UK/EEA now 10% + 5% billing fee). On $1 you keep about $0.85 before tax.
+- In Play Console → Monetize → Subscriptions, create product id **monthly_1cad**, $1.00 CAD, monthly auto-renew. The app has a billing stub ready; a small server must verify purchases before it's turned on.
+- The free tier is "first 100 tracked entries free, no card" — not a free *trial* — so nothing auto-converts to paid.
 
 ## 6. Release
 1. Upload the .aab to **Internal testing** first, install on your phone, check it.
@@ -52,7 +52,7 @@ On a PC (or ask me to install the tools on the box): follow `android/BUILD.md` �
 
 ## Multi-language (added Nov 4, 2026)
 - The app is a **TWA (web app in a Chrome wrapper)**, so translation happens in the web app: `i18n/*.json` (en, fr, es, de, pt, ar). It auto-picks the phone's language; users can change it in Settings. Arabic flips to right-to-left.
-- Android `strings.xml` only covers the wrapper (launcher name "50 Free"). Bubblewrap generates it; you can add `values-fr/strings.xml` for the launcher label if wanted.
+- Android `strings.xml` only covers the wrapper (launcher name "100 Free"). Bubblewrap generates it; you can add `values-fr/strings.xml` for the launcher label if wanted.
 - **Store listing:** In Play Console → Grow → Store presence → Main store listing → "Manage translations" → add languages. Play offers **machine translation** of your listing text (review it; for French/Québec, check wording yourself).
 - Choose countries in Play Console → Production → Countries/regions: **Canada, United States, United Kingdom, Australia, New Zealand** (paid plan). Leave out other countries for now (see MULTI-REGION-LEGAL.md).
 - Account deletion: Play requires an in-app delete option **and** a web link in the Data safety form. In-app: Settings → Delete my account. Web link: use the privacy policy URL (section "Delete your account").

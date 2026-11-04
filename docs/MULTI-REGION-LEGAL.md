@@ -1,11 +1,11 @@
-# Multi-region legal framework — Enter 50 Contests Free
+# Multi-region legal framework — Enter 100 Contests Free
 *Research Nov 4, 2026. Builds on LEGAL-FRAMEWORK.md (BC). A careful research summary, NOT legal advice. Items marked ⚠ LAWYER need review by Lex Meridian / Docket Hawk.*
 
-## The core question: does charging $2/month make this an illegal lottery?
+## The core question: does charging $1/month make this an illegal lottery?
 A lottery/illegal sweepstakes generally needs **prize + chance + consideration**. This app **runs no contests and awards no prizes**; it sells access to a curated directory + tracker. The sponsors' contests are free to enter on their own sites. So the subscription is not consideration *for a chance to win* — as long as:
 1. Every listed contest is free to enter without the app (true — links go to the sponsor's public page).
 2. The paywall never gates the *ability to enter*, only our list/tracker. Wording already says "your plan pays for curated links and tracker, not entries."
-3. ⚠ LAWYER: the current design counts "entries" toward the 50-free limit. A regulator could read "pay after 50 entries" as paying for entries. **Recommendation:** rename the meter to "50 free tracked contests" and keep sponsor links visible even when locked (currently the list is hidden behind the paywall). Not changed in this build — flag for decision.
+3. ⚠ LAWYER: the current design counts "entries" toward the 100-free limit. A regulator could read "pay after 100 entries" as paying for entries. **Recommendation:** rename the meter to "100 free tracked contests" and keep sponsor links visible even when locked (currently the list is hidden behind the paywall). Not changed in this build — flag for decision.
 - Canada: Criminal Code s.206 bans lotteries/mixed chance-skill games with paid consideration ([Justice Laws s.206](https://laws-lois.justice.gc.ca/eng/acts/C-46/section-206.html)); Competition Act s.74.06 disclosure ([Competition Bureau guidelines](https://competition-bureau.canada.ca/en/promotional-contests-enforcement-guidelines)). Both target the **operator** of a contest, i.e. the sponsor.
 - Google Play bans apps that let users "participate using real money ... to obtain a prize" ([Play policy: Real-Money Gambling, Games, and Contests](https://support.google.com/googleplay/android-developer/answer/9877032)). A paid directory is not that, but listing copy must never say "pay to enter/win".
 - Apple 5.3.1: "Sweepstakes and contests must be sponsored by the developer of the app" ([App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/)). ⚠ This is the **biggest App Store risk**: a reviewer may treat a contest directory as facilitating third-party sweepstakes. Mitigation: present as a "contest tracker & news directory", no "enter" button inside the app (links open in Safari), App Review notes explaining it.
@@ -44,7 +44,7 @@ A lottery/illegal sweepstakes generally needs **prize + chance + consideration**
 PIPEDA / BC PIPA / Québec Law 25 (privacy officer named), CASL (opt-in box separate), US state laws (no sale/sharing; most thresholds far above this app's size), UK GDPR/GDPR (lawful bases listed; Canada adequacy), AU/NZ Privacy Acts. Account deletion in-app added (Apple 5.1.1(v), Play account-deletion policy).
 
 ## Needs a lawyer (Lex Meridian / Docket Hawk)
-1. "Pay after 50 entries" framing vs. consideration (rename suggested).
+1. "Pay after 100 entries" framing vs. consideration (rename suggested).
 2. Apple 5.3.1 directory risk.
 3. UK ICO fee + Art.27 representative; whether to open EU paid plan.
 4. Full French translation of terms/privacy for Québec.

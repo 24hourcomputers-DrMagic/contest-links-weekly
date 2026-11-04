@@ -44,7 +44,7 @@ export default { async fetch(req, env) {
   const u=new URL(req.url);const cors={'access-control-allow-origin':env.ALLOWED_ORIGIN||'','access-control-allow-headers':'content-type','access-control-allow-methods':'POST,GET,OPTIONS'};
   if(req.method==='OPTIONS')return new Response(null,{headers:cors});
   try{
-    if(u.pathname==='/play/verify'&&req.method==='POST'){const {purchaseToken,sku}=await req.json();if(!purchaseToken||sku!=='monthly_2cad')return Response.json({error:'bad request'},{status:400,headers:cors});return Response.json(await verify(env,purchaseToken,sku),{headers:cors})}
+    if(u.pathname==='/play/verify'&&req.method==='POST'){const {purchaseToken,sku}=await req.json();if(!purchaseToken||sku!=='monthly_1cad')return Response.json({error:'bad request'},{status:400,headers:cors});return Response.json(await verify(env,purchaseToken,sku),{headers:cors})}
     if(u.pathname==='/play/rtdn'&&req.method==='POST'){
       if(!env.RTDN_TOKEN||u.searchParams.get('token')!==env.RTDN_TOKEN)return new Response('forbidden',{status:403});
       const m=await req.json();const n=JSON.parse(atob(m.message.data));
