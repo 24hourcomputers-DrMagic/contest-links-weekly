@@ -28,3 +28,4 @@ a{color:var(--sea);word-break:break-all}.small{font-size:12px;color:var(--mute)}
 
 .geobanner{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;border:0;background:#132c4d;color:#fff;padding:8px;cursor:pointer;font:inherit}.geobanner span{display:flex;flex-direction:column;text-align:start}.geobanner small{opacity:.8;font-size:.8em;text-decoration:underline}
 .geobanner .globe{width:40px;height:40px;border-radius:50%}
+.card.best{border:2px solid #f5c542;position:relative}.badge{display:inline-block;background:#f5c542;color:#132c4d;font-weight:700;border-radius:999px;padding:2px 10px;font-size:.8em}
