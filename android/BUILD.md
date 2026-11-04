@@ -11,3 +11,12 @@ Then put that SHA-256 into ../.well-known/assetlinks.json.
 NOTE: GitHub Pages project sites serve /contest-links-weekly/.well-known/, but Android checks
 https://24hourcomputers-drmagic.github.io/.well-known/assetlinks.json (domain root). Publish assetlinks.json in a
 repo named 24hourcomputers-DrMagic.github.io (or use a custom domain), else the app shows a browser URL bar.
+
+## Google Play Billing (Bubblewrap playBilling)
+`twa-manifest.json` has `features.playBilling.enabled: true`. Bubblewrap adds the Play Billing library and the Digital Goods / Payment Request bridge to the generated Android project. After changing it, run `bubblewrap update` and then `bubblewrap build`.
+- **Web side:** `billing.js` uses `getDigitalGoodsService('https://play.google.com/billing')`. It calls `getDetails(['monthly_1cad'])`, opens the `PaymentRequest` (`supportedMethods: 'https://play.google.com/billing'`, `data: {sku: 'monthly_1cad'}`), and calls `listPurchases()` on load to restore an existing subscription.
+- **Testing:** this only works inside the installed TWA, from a Play-installed build (internal or closed testing track). Use a license-tester account (Play Console > Settings > License testing) so test purchases aren't charged.
+- **Play Console:** create a subscription with product id `monthly_1cad` and a monthly auto-renewing base plan at C$1.00. Activate it.
+- **Server:** deploy `server/worker-stub.js` (Cloudflare Worker) and put its secrets in Worker env, never in git. Set `window.PLAY_VERIFY_URL` (for example in index.html before billing.js) to `https://<worker>/play/verify`. Google refunds purchases that aren't acknowledged within 3 days.
+- **API access:** create a Google Cloud service account and enable the Google Play Android Developer API. Invite the service account in Play Console > Users and permissions with financial and subscription permissions.
+- **Real-time developer notifications:** create a Pub/Sub topic and grant `google-play-developer-notifications@system.gserviceaccount.com` the Publisher role. Set the topic in Play Console > Monetization setup. Add a push subscription to `https://<worker>/play/rtdn?token=<RTDN_TOKEN>` so renewals, cancellations and expiries update the account.

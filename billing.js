@@ -1,14 +1,37 @@
-// billing.js — chooses payment path. Web: Stripe (TEST mode, pk_test_PLACEHOLDER). Play/TWA: Google Play Billing (STUB).
-// Play: Digital Goods API + Payment Request in a TWA (Bubblewrap "playBilling" feature). Product id: monthly_1cad ($1.00 CAD/mo auto-renew).
-// Purchases must be acknowledged/verified on a server (Google Play Developer API) before granting access — see server/worker-stub.js.
+// billing.js — Google Play Billing for the Android TWA (Bubblewrap features.playBilling.enabled=true).
+// Uses the Digital Goods API + Payment Request API. Subscription product id: monthly_1cad (C$1.00/month base plan, set up in Play Console).
+// Purchases are verified and acknowledged on the server (server/worker-stub.js -> /play/verify), using the Google Play Developer API
+// purchases.subscriptionsv2.get. Unacknowledged purchases are refunded by Google after 3 days, so verify before unlocking.
+// There is no other payment path in the app (Play policy). In a normal browser the app shows "subscribe in the Android app".
+const PLAY='https://play.google.com/billing';
+const SKU='monthly_1cad';
+const VERIFY_URL=window.PLAY_VERIFY_URL||''; // set to the deployed Worker origin, e.g. 'https://clw-api.example.workers.dev/play/verify'
 const Billing={
+  SKU,
+  available(){return 'getDigitalGoodsService' in window && 'PaymentRequest' in window},
   isPlay(){return document.referrer.startsWith('android-app://')||/source=twa/.test(location.search)||sessionStorage.getItem('twa')==='1'},
-  async subscribe(sku){
-    if(!('getDigitalGoodsService' in window))return {ok:false,msg:'Google Play Billing is not connected yet in this test build (stub). No charge was made.'};
-    try{const svc=await window.getDigitalGoodsService('https://play.google.com/billing');const [d]=await svc.getDetails([sku]);
-      const pr=new PaymentRequest([{supportedMethods:'https://play.google.com/billing',data:{sku}}],{total:{label:'Total',amount:{currency:'CAD',value:'0'}}});
-      const res=await pr.show();/* TODO: POST res.details.purchaseToken to server for verification + acknowledgement */await res.complete('success');return {ok:true,details:d}}
-    catch(e){return {ok:false,msg:'Purchase not completed: '+e.message}}}
+  async service(){if(!this.available())return null;try{return await window.getDigitalGoodsService(PLAY)}catch(e){return null}},
+  async details(){const s=await this.service();if(!s)return null;try{const [d]=await s.getDetails([SKU]);return d||null}catch(e){return null}},
+  async verify(token,sku){ // server verifies with Google and acknowledges; returns {active,expiry}
+    if(!VERIFY_URL)return {active:true,unverified:true}; // demo build: no server deployed yet
+    const r=await fetch(VERIFY_URL,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({purchaseToken:token,sku,packageName:'io.github.drmagic24.contestlinks'})});
+    if(!r.ok)throw new Error('verification failed ('+r.status+')');return r.json()},
+  async restore(){ // on load: unlock if Play reports an existing purchase of the subscription
+    const s=await this.service();if(!s)return null;
+    try{const list=await s.listPurchases();const p=list.find(x=>x.itemId===SKU);if(!p)return {active:false};
+      const v=await this.verify(p.purchaseToken,SKU);return {active:!!v.active,token:p.purchaseToken,expiry:v.expiry,unverified:v.unverified}}
+    catch(e){return {active:false,error:e.message}}},
+  async subscribe(){
+    if(!this.available())return {ok:false,msg:'Subscribe in the Android app. The $1 plan is sold only through Google Play in the "Enter 100 Contests Free" Android app.'};
+    const s=await this.service();if(!s)return {ok:false,msg:'Google Play Billing is not available on this device. Update Google Play and try again.'};
+    const d=await this.details();if(!d)return {ok:false,msg:'The subscription is not set up in Google Play yet. No charge was made.'};
+    try{
+      const pr=new PaymentRequest([{supportedMethods:PLAY,data:{sku:SKU}}],{total:{label:d.title||'Monthly',amount:d.price||{currency:'CAD',value:'1.00'}}});
+      const res=await pr.show();const token=res.details.purchaseToken;
+      let v;try{v=await this.verify(token,SKU)}catch(e){await res.complete('fail');return {ok:false,msg:'Payment could not be verified. You have not been charged if Google refunds the unacknowledged purchase. '+e.message}}
+      await res.complete(v.active?'success':'fail');
+      return v.active?{ok:true,token,expiry:v.expiry,unverified:v.unverified}:{ok:false,msg:'Subscription is not active.'}}
+    catch(e){return {ok:false,msg:e.name==='AbortError'?'Purchase cancelled. No charge was made.':'Purchase not completed: '+e.message}}}
 };
 if(/source=twa/.test(location.search))sessionStorage.setItem('twa','1');
 window.Billing=Billing;

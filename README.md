@@ -17,12 +17,13 @@ Install: Chrome/Edge "Install app" icon, or the Android Google Play app (Android
 - Screens: the `V` object in app.js (onboarding, issue, library, track, subscribe, settings).
 - Data is in localStorage key `clw`.
 
-## Payments (TEST MODE ONLY)
-`STRIPE_PK='pk_test_PLACEHOLDER'`. Checkout is simulated; no card is charged. For real Stripe:
-1. Create Prices: $1.00 CAD/month and $12.00 CAD/year, Stripe Tax for GST/PST.
-2. Add a small server (e.g. Cloudflare Worker) creating Checkout Sessions (mode=subscription) and a webhook for invoice.paid / invoice.payment_failed / customer.subscription.updated.
-3. Enable Smart Retries, card account updater, reminder emails before renewal, Customer Portal for cancel/card update.
-Inside the Android Play app, digital subscriptions must use Google Play Billing unless a regional exception applies; web checkout is the card path.
+## Payments: Google Play Billing only
+`billing.js` uses the Digital Goods API (`getDigitalGoodsService('https://play.google.com/billing')`) and the Payment Request API (`supportedMethods: 'https://play.google.com/billing'`, `sku: 'monthly_1cad'`).
+- **On load:** `listPurchases()` restores an existing subscription.
+- **After 100 free entries:** the lock screen leads to Plan, then "Subscribe $1/mo with Google Play".
+- **Plain browsers:** show "Subscribe in the Android app".
+- **Server checks:** purchases are verified and acknowledged by `server/worker-stub.js` (`POST /play/verify`). Set `window.PLAY_VERIFY_URL` once it is deployed. Until then, the demo unlocks without server verification. Do not ship that to production.
+- **Stripe:** removed from the in-app path (Play policy). See android/BUILD.md for the Bubblewrap and Play Console setup.
 
 ## Deploy
 Any static host. GitHub Pages: push to `main`, Settings > Pages > Deploy from branch `main` / root.
