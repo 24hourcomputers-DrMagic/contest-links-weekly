@@ -21,3 +21,5 @@ a{color:var(--sea);word-break:break-all}.small{font-size:12px;color:var(--mute)}
 .splash{animation:spl 1.2s .3s ease-out both}@keyframes spl{0%{transform:scale(.2);opacity:0}40%{opacity:1}100%{transform:scale(1.4);opacity:0}}
 .fx{position:absolute;font-size:26px;animation:fall 2.6s linear forwards}@keyframes fall{from{transform:translateY(-10vh) rotate(0)}to{transform:translateY(110vh) rotate(540deg)}}
 .won{background:var(--ok);color:#062;border-radius:999px;padding:2px 8px;font-size:11px;font-weight:800}
+.banner{display:block;width:100%;max-width:760px;height:auto;margin:0 auto}
+.meter{background:#13294a;border-radius:10px;height:10px;overflow:hidden;margin:6px 0}.meter i{display:block;height:100%;background:#ffd34d}

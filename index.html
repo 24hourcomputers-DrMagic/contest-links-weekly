@@ -1,10 +1,14 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Contest Links Weekly — $1/month</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg"><meta name="theme-color" content="#0b1d33"><link rel="stylesheet" href="style.css">
-<!-- Stripe TEST mode only. Replace pk_test_PLACEHOLDER in app.js. Loaded lazily on checkout. -->
+<title>Enter 100 Contests Free</title><link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png"><link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="theme-color" content="#0b1d33"><meta name="description" content="Enter 100 Contests Free, then $1/month CAD."><link rel="stylesheet" href="style.css">
+<!-- Stripe TEST mode only (pk_test_PLACEHOLDER). No live charges. -->
 </head><body>
-<header><b>Contest Links Weekly</b><span class="row"><button id="mute" class="btn q" title="Music (off by default)">♪ Off</button><span class="price">$1/mo</span></span></header>
+<header><b>Enter 100 Contests Free</b><span class="row"><span id="meter" class="price"></span><button id="mute" class="btn q" title="Music on/off">♪ On</button></span></header>
+<img class="banner" src="banner.svg" alt="Shiny gold coin reading Fun Ahead" width="1024" height="500">
 <main id="view"></main>
 <nav id="nav"></nav>
 <div id="celebrate"></div>
-<audio id="music" src="Heroic_Age.mp3" loop preload="none"></audio>
-<script src="app.js"></script></body></html>
+<audio id="music" src="Heroic_Age.mp3" loop autoplay preload="auto"></audio>
+<footer class="small" style="text-align:center;padding:8px 8px 80px">Music: "Heroic Age" Kevin MacLeod (incompetech.com), CC BY 4.0 · <a href="privacy.html">Privacy policy</a></footer>
+<script src="members.js"></script><script src="app.js"></script></body></html>

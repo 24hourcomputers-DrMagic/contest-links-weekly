@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 500" width="1024" height="500"><defs>
+<radialGradient id="bg" cx=".5" cy=".5" r=".7"><stop offset="0" stop-color="#1b3a63"/><stop offset="1" stop-color="#0b1d33"/></radialGradient>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff6c2"/><stop offset=".3" stop-color="#ffd34d"/><stop offset=".6" stop-color="#d99a00"/><stop offset="1" stop-color="#ffe680"/></linearGradient>
+<linearGradient id="r" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff2a8"/><stop offset=".5" stop-color="#b87d00"/><stop offset="1" stop-color="#ffd34d"/></linearGradient></defs>
+<rect width="1024" height="500" fill="url(#bg)"/>
+<g fill="#fff" opacity=".9"><path d="M180 90l6 18 18 6-18 6-6 18-6-18-18-6 18-6z"/><path d="M850 380l5 14 14 5-14 5-5 14-5-14-14-5 14-5z"/><path d="M820 100l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/><path d="M220 390l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/></g>
+<circle cx="512" cy="258" r="215" fill="#7a5200" opacity=".5"/>
+<circle cx="512" cy="250" r="215" fill="url(#r)"/><circle cx="512" cy="250" r="185" fill="url(#g)" stroke="#b87d00" stroke-width="5"/>
+<circle cx="512" cy="250" r="170" fill="none" stroke="#fff3b0" stroke-width="3" stroke-dasharray="6 10"/>
+<ellipse cx="440" cy="150" rx="90" ry="35" fill="#fff" opacity=".35" transform="rotate(-30 440 150)"/>
+<g font-family="DejaVu Sans,Arial Black,Arial,sans-serif" font-weight="900" text-anchor="middle">
+<text x="514" y="243" font-size="92" fill="#8a5a00">FUN</text><text x="512" y="240" font-size="92" fill="#fffbe6" stroke="#8a5a00" stroke-width="3">FUN</text>
+<text x="514" y="333" font-size="80" fill="#8a5a00">AHEAD</text><text x="512" y="330" font-size="80" fill="#fffbe6" stroke="#8a5a00" stroke-width="3">AHEAD</text></g></svg>
