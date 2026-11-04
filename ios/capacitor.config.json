@@ -1,0 +1,7 @@
+{
+  "appId": "io.github.drmagic24.contestlinks",
+  "appName": "Enter 100 Contests Free",
+  "webDir": "www",
+  "ios": { "contentInset": "automatic", "limitsNavigationsToAppBoundDomains": true },
+  "plugins": { "SplashScreen": { "backgroundColor": "#0B1D33" } }
+}
