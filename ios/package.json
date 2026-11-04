@@ -1,4 +1,0 @@
-{"name":"contest-links-ios","private":true,"version":"1.0.0",
- "scripts":{"copy-web":"rm -rf www && mkdir www && cp -r ../index.html ../*.js ../*.css ../*.svg ../*.png ../*.ico ../*.mp3 ../*.html ../contests.json ../manifest.webmanifest ../i18n ../icons www/ && rm -f www/sw.js",
-  "sync":"npm run copy-web && npx cap sync ios"},
- "dependencies":{"@capacitor/core":"^7.0.0","@capacitor/ios":"^7.0.0","@capacitor/cli":"^7.0.0","@capgo/native-purchases":"^7.0.0"}}

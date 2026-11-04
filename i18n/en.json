@@ -14,7 +14,7 @@
  "all_regions": "All regions",
  "save": "Save",
  "music_label": "Background music (plays on open; tap ♪ to mute)",
- "disclaimer": "This app lists third-party contests. We do not run them or guarantee any prize; each sponsor's official rules apply. Google and Apple are not sponsors of, or involved in, any contest listed.",
+ "disclaimer": "This app lists third-party contests. We do not run them or guarantee any prize; each sponsor's official rules apply. Google is not a sponsor of, or involved in, any contest listed.",
  "not_served": "Sorry, this app is not offered in your country yet.",
  "none_here": "No listed contests are confirmed open to your location yet. Contests whose eligibility is unknown are only shown in Canada. Check back soon.",
  "issue_title": "This week's issue",
@@ -31,5 +31,7 @@
  "renews_note": "Renews automatically each month until you cancel.",
  "start_free": "Start free",
  "free_used": "free entries used",
- "rtl_note": ""
+ "rtl_note": "",
+ "geo_banner": "Win Win World",
+ "geo_sub": "Check your country"
 }

@@ -50,3 +50,8 @@ PIPEDA / BC PIPA / Québec Law 25 (privacy officer named), CASL (opt-in box sepa
 4. Full French translation of terms/privacy for Québec.
 5. Australia 2027 subscription/prize-draw changes.
 6. Tax: Google/Apple collect & remit sales tax/VAT/GST in most of these markets as merchant of record; confirm Canadian GST registration once >$30K.
+
+> **Android-only (Nov 4, 2026):** Apple/App Store items in this file are no longer in scope; the iOS wrapper was removed (see STORE-PLAN.md).
+
+## Contest sourcing, Nov 4, 2026
+200 contests were added for GB, AU, NZ, IE, FR, DE, ES, NL. Each was found on GiveOwl's per-country lists, which check the organiser page. Only listings marked open and no purchase necessary, with a close date on or after Nov 5, 2026, were kept, and the organiser page had to load (HTTP 200). Each record's `src` field holds the listing, and `how` holds the entry and eligibility summary. Region limits (GB = Great Britain only, AU state lists) were read from that text automatically and should be spot-checked. Users must still read each sponsor's rules. IE/FR/DE/ES/NL stay free-tier only.

@@ -27,3 +27,6 @@
 
 ## Steps
 1. Deploy PWA to HTTPS host (GitHub Pages). 2. Lighthouse PWA check. 3. Real Stripe test → live after review. 4. Play account ($25), Bubblewrap AAB, internal → closed test → production. 5. Apple enrollment ($99), Capacitor build, TestFlight, review.
+
+## Android-only (Nov 4, 2026)
+The iOS/Apple App Store track is dropped. The Capacitor iOS wrapper (`ios/`) and `docs/APP-STORE-GUIDE.md` were removed from the repo (recoverable from commit 2ecc0ef); iOS code paths were removed from `billing.js`/`app.js`. Apple items above are historical only. Release target: Google Play (TWA) only.

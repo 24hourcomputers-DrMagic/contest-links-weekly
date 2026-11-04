@@ -14,7 +14,7 @@
  "all_regions": "Toutes les régions",
  "save": "Enregistrer",
  "music_label": "Musique de fond (au démarrage; touchez ♪ pour couper)",
- "disclaimer": "Cette application répertorie des concours de tiers. Nous ne les organisons pas et ne garantissons aucun prix; le règlement officiel de chaque commanditaire s'applique. Google et Apple ne commanditent aucun concours répertorié et n'y participent pas.",
+ "disclaimer": "Cette application répertorie des concours de tiers. Nous ne les organisons pas et ne garantissons aucun prix; le règlement officiel de chaque commanditaire s'applique. Google ne commandite aucun concours répertorié et n'y participe pas.",
  "not_served": "Désolé, cette application n'est pas encore offerte dans votre pays.",
  "none_here": "Aucun concours répertorié n'est encore confirmé comme ouvert à votre lieu de résidence. Les concours dont l'admissibilité est inconnue ne sont affichés qu'au Canada.",
  "issue_title": "Le numéro de la semaine",
@@ -31,5 +31,7 @@
  "renews_note": "Renouvellement automatique chaque mois jusqu'à l'annulation.",
  "start_free": "Commencer gratuitement",
  "free_used": "participations gratuites utilisées",
- "rtl_note": ""
+ "rtl_note": "",
+ "geo_banner": "Win Win World",
+ "geo_sub": "Vérifiez votre pays"
 }

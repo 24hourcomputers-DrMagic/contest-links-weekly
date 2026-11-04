@@ -14,7 +14,7 @@
  "all_regions": "Todas as regiões",
  "save": "Salvar",
  "music_label": "Música de fundo (ao abrir; toque ♪ para silenciar)",
- "disclaimer": "Este app lista concursos de terceiros. Não os organizamos nem garantimos prêmios; valem as regras oficiais de cada patrocinador. Google e Apple não patrocinam nenhum concurso listado.",
+ "disclaimer": "Este app lista concursos de terceiros. Não os organizamos nem garantimos prêmios; valem as regras oficiais de cada patrocinador. O Google não patrocina nenhum concurso listado.",
  "not_served": "Desculpe, este app ainda não está disponível no seu país.",
  "none_here": "Ainda não há concursos confirmados para sua localização.",
  "issue_title": "Edição da semana",
@@ -31,5 +31,7 @@
  "renews_note": "Renova automaticamente todo mês até você cancelar.",
  "start_free": "Começar grátis",
  "free_used": "participações grátis usadas",
- "rtl_note": ""
+ "rtl_note": "",
+ "geo_banner": "Win Win World",
+ "geo_sub": "Verifique o seu país"
 }
