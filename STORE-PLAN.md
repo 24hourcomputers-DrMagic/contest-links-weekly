@@ -33,4 +33,3 @@ The iOS/Apple App Store track is dropped. The Capacitor iOS wrapper (`ios/`) and
 
 ## Price change (Nov 4, 2026)
 The free tier is now **50 tracked entries** (it was 100). The paid plan is now **C$2.00/month** with Play product id `monthly_2cad` (it was `monthly_1cad`, C$1). The $12/yr web plan is gone. Older figures above are historical.
-Added (Nov 4, 2026): second subscription `yearly_10cad`, C$10.00/year annual base plan, shown as best value. Savings are computed from Play-returned prices.
