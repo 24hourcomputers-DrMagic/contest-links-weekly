@@ -1,4 +1,4 @@
-# Google Play Data safety form — DRAFT answers (Enter 100 Contests Free)
+# Google Play Data safety form — DRAFT answers (Enter 50 Contests Free)
 Review before submitting; update if a server/analytics is added.
 - Does the app collect or share user data? **Yes (collects).** Shared with third parties: **No** (payment processors acting for us are "service providers", not sharing).
 - Data types collected:

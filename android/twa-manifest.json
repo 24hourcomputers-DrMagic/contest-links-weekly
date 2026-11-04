@@ -1,8 +1,8 @@
 {
  "packageId": "io.github.drmagic24.contestlinks",
  "host": "24hourcomputers-drmagic.github.io",
- "name": "Enter 100 Contests Free",
- "launcherName": "100 Free",
+ "name": "Enter 50 Contests Free",
+ "launcherName": "50 Free",
  "display": "standalone",
  "orientation": "portrait",
  "themeColor": "#0B1D33",

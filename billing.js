@@ -1,10 +1,10 @@
 // billing.js — Google Play Billing for the Android TWA (Bubblewrap features.playBilling.enabled=true).
-// Uses the Digital Goods API + Payment Request API. Subscription product id: monthly_1cad (C$1.00/month base plan, set up in Play Console).
+// Uses the Digital Goods API + Payment Request API. Subscription product id: monthly_2cad (C$2.00/month base plan, set up in Play Console).
 // Purchases are verified and acknowledged on the server (server/worker-stub.js -> /play/verify), using the Google Play Developer API
 // purchases.subscriptionsv2.get. Unacknowledged purchases are refunded by Google after 3 days, so verify before unlocking.
 // There is no other payment path in the app (Play policy). In a normal browser the app shows "subscribe in the Android app".
 const PLAY='https://play.google.com/billing';
-const SKU='monthly_1cad';
+const SKU='monthly_2cad';
 const VERIFY_URL=window.PLAY_VERIFY_URL||''; // set to the deployed Worker origin, e.g. 'https://clw-api.example.workers.dev/play/verify'
 const Billing={
   SKU,
@@ -22,11 +22,11 @@ const Billing={
       const v=await this.verify(p.purchaseToken,SKU);return {active:!!v.active,token:p.purchaseToken,expiry:v.expiry,unverified:v.unverified}}
     catch(e){return {active:false,error:e.message}}},
   async subscribe(){
-    if(!this.available())return {ok:false,msg:'Subscribe in the Android app. The $1 plan is sold only through Google Play in the "Enter 100 Contests Free" Android app.'};
+    if(!this.available())return {ok:false,msg:'Subscribe in the Android app. The $2 plan is sold only through Google Play in the "Enter 50 Contests Free" Android app.'};
     const s=await this.service();if(!s)return {ok:false,msg:'Google Play Billing is not available on this device. Update Google Play and try again.'};
     const d=await this.details();if(!d)return {ok:false,msg:'The subscription is not set up in Google Play yet. No charge was made.'};
     try{
-      const pr=new PaymentRequest([{supportedMethods:PLAY,data:{sku:SKU}}],{total:{label:d.title||'Monthly',amount:d.price||{currency:'CAD',value:'1.00'}}});
+      const pr=new PaymentRequest([{supportedMethods:PLAY,data:{sku:SKU}}],{total:{label:d.title||'Monthly',amount:d.price||{currency:'CAD',value:'2.00'}}});
       const res=await pr.show();const token=res.details.purchaseToken;
       let v;try{v=await this.verify(token,SKU)}catch(e){await res.complete('fail');return {ok:false,msg:'Payment could not be verified. You have not been charged if Google refunds the unacknowledged purchase. '+e.message}}
       await res.complete(v.active?'success':'fail');
