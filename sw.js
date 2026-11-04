@@ -1,4 +1,4 @@
-const C='clw-v2',A=['./','./index.html','./offline.html','./privacy.html','./app.js','./members.js','./style.css','./contests.json','./manifest.webmanifest','./banner.svg','./favicon.ico','./icons/icon-192.png','./icons/icon-512.png','./icons/maskable-512.png','./Heroic_Age.mp3'];
+const C='clw-v3',A=['./','./index.html','./offline.html','./privacy-policy.html','./terms.html','./billing.js','./app.js','./members.js','./style.css','./contests.json','./manifest.webmanifest','./banner.svg','./favicon.ico','./icons/icon-192.png','./icons/icon-512.png','./icons/maskable-512.png','./Heroic_Age.mp3'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(C).then(c=>c.addAll(A)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{if(e.request.method!=='GET'||e.request.headers.has('range'))return;
