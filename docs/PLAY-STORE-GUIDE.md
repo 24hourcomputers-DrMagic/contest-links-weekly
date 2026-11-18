@@ -9,8 +9,8 @@
 - Draft Data safety answers: `newsletter/DATA-SAFETY-DRAFT.md`
 
 ## 1. Make the Google Play developer account (about 1 hour + waiting)
-1. Go to https://play.google.com/console/signup and sign in with 24hourcomputers@gmail.com.
-2. Choose **Personal** (just you, legal name Paul Digby) or **Organization** (needs a registered business + a D-U-N-S number, free from Dun & Bradstreet but takes days). Personal is simplest.
+1. Go to https://play.google.com/console/signup and sign in with the owner's Google account.
+2. Choose **Personal** (just you, your legal name) or **Organization** (needs a registered business + a D-U-N-S number, free from Dun & Bradstreet but takes days). Personal is simplest.
 3. Pay the **one-time US$25** fee by card. (It's not $35.)
 4. **Verify your identity**: upload government ID; your legal name and address must match. Can take a few days.
 5. Personal accounts must also **verify an Android phone** using the Play Console app.
